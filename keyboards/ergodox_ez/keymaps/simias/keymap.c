@@ -30,7 +30,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 	// Right hand
 	LGUI(KC_COMMA), KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_BSLASH,
-	TG(1),          KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_LBRACKET,
+	KC_TRNS,        KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_LBRACKET,
 	                KC_H,           KC_J,           KC_K,           KC_L,           KC_SCOLON,      KC_QUOTE,
 	KC_ENTER,       KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_RSHIFT,
 	                                KC_MINUS,       KC_EQUAL,       KC_TRNS,        KC_TRNS,        KC_TRNS,
