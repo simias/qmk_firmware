@@ -30,14 +30,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 	// Right hand
 	LGUI(KC_COMMA), KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_BSLASH,
-	KC_BSPACE,      KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_LBRACKET,
+	TG(1),          KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_LBRACKET,
 	                KC_H,           KC_J,           KC_K,           KC_L,           KC_SCOLON,      KC_QUOTE,
 	KC_ENTER,       KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_RSHIFT,
 	                                KC_MINUS,       KC_EQUAL,       KC_TRNS,        KC_TRNS,        KC_TRNS,
 
-	KC_ESCAPE,      KC_AUDIO_MUTE,
-	KC_PGUP,
-	KC_PGDOWN,      MO(1),          KC_RALT),
+	KC_PGUP,        KC_AUDIO_MUTE,
+	KC_PGDOWN,
+	MO(1),          KC_RALT,        KC_BSPACE),
 
   [1] = LAYOUT_ergodox(
 	// Left hand
@@ -136,13 +136,19 @@ uint32_t layer_state_set_user(uint32_t state) {
     uint8_t layer = biton32(state);
 
     ergodox_board_led_off();
-    if (layer == 0) {
-      ergodox_right_led_1_off();
-    } else {
-      ergodox_right_led_1_on();
-    }
+    ergodox_right_led_1_off();
     ergodox_right_led_2_off();
     ergodox_right_led_3_off();
+
+    switch (layer) {
+    case 1:
+      ergodox_right_led_3_on();
+      break;
+    case 2:
+      ergodox_right_led_1_on();
+      break;
+    }
+
     return state;
 
 };
