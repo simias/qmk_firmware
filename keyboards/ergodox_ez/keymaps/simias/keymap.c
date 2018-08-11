@@ -19,25 +19,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [0] = LAYOUT_ergodox(
 	// Left hand
-	KC_GRAVE,       KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           LGUI(KC_D),
+	KC_GRAVE,       KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_TRNS,
 	KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           KC_RBRACKET,
 	KC_LCTL,        KC_A,           KC_S,           KC_D,           KC_F,           KC_G,
 	KC_LSHIFT,      KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,           KC_TRNS,
 	KC_ESCAPE,      KC_DELETE,      KC_HOME,        KC_END,         KC_LALT,
 	                                                                                KC_VOLD,        KC_VOLU,
-	                                                                                                LGUI(KC_I),
+	                                                                                                KC_TRNS,
 	                                                                KC_SPACE,       MO(2),          KC_LGUI,
 
 	// Right hand
-	LGUI(KC_COMMA), KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_BSLASH,
-	KC_TRNS,        KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_LBRACKET,
+	KC_TRNS,        KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_BSLASH,
+	KC_BSPACE,      KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_LBRACKET,
 	                KC_H,           KC_J,           KC_K,           KC_L,           KC_SCOLON,      KC_QUOTE,
 	KC_ENTER,       KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_RSHIFT,
 	                                KC_MINUS,       KC_EQUAL,       KC_TRNS,        KC_TRNS,        KC_TRNS,
 
-	KC_PGUP,        KC_AUDIO_MUTE,
-	KC_PGDOWN,
-	MO(1),          KC_RALT,        KC_BSPACE),
+	KC_ESCAPE,      KC_AUDIO_MUTE,
+	KC_PGUP,
+	KC_PGDOWN,      MO(1),        KC_RALT),
 
   [1] = LAYOUT_ergodox(
 	// Left hand
@@ -48,7 +48,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
 	                                                                                KC_MS_BTN4,     KC_MS_BTN5,
 	                                                                                                KC_TRNS,
-	                                                                KC_MS_BTN1,     KC_MS_BTN2,     KC_MS_BTN3,
+	                                                                KC_MS_BTN1,     KC_MS_BTN2,     KC_TRNS,
 
 	// Right hand
 	KC_TRNS,        KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_F11,
