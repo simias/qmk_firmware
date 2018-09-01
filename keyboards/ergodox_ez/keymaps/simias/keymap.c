@@ -103,7 +103,20 @@ void matrix_init_user(void) {
 #ifdef RGBLIGHT_COLOR_LAYER_0
   rgblight_setrgb(RGBLIGHT_COLOR_LAYER_0);
 #endif
+
+  ergodox_board_led_off();
+  ergodox_right_led_1_off();
+  ergodox_right_led_2_off();
+  ergodox_right_led_3_off();
 };
+
+void led_set_user(uint8_t usb_led) {
+  if (usb_led & (1<<USB_LED_SCROLL_LOCK)) {
+    ergodox_right_led_1_on();
+  } else {
+    ergodox_right_led_1_off();
+  }
+}
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
@@ -135,20 +148,7 @@ uint32_t layer_state_set_user(uint32_t state) {
 
     uint8_t layer = biton32(state);
 
-    ergodox_board_led_off();
-    ergodox_right_led_1_off();
-    ergodox_right_led_2_off();
-    ergodox_right_led_3_off();
-
-    switch (layer) {
-    case 1:
-      ergodox_right_led_3_on();
-      break;
-    case 2:
-      ergodox_right_led_1_on();
-      break;
-    }
-
+    (void)layer;
     return state;
 
 };
