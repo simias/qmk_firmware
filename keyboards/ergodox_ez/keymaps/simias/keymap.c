@@ -16,13 +16,12 @@ enum custom_keycodes {
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-
   [0] = LAYOUT_ergodox(
 	// Left hand
 	KC_GRAVE,       KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_TRNS,
-	KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           KC_RBRACKET,
+	KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           TG(3),
 	KC_LCTL,        KC_A,           KC_S,           KC_D,           KC_F,           KC_G,
-	KC_LSPO,        KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,           KC_TRNS,
+	KC_LSPO,        KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,           KC_ENTER,
 	KC_ESCAPE,      KC_DELETE,      KC_HOME,        KC_END,         KC_LALT,
 	                                                                                KC_VOLD,        KC_VOLU,
 	                                                                                                KC_TRNS,
@@ -77,6 +76,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	                KC_DELETE,      KC_BSPACE,      KC_TRNS,        KC_DOWN,        KC_RBRACKET,    KC_TRNS,
 	KC_TRNS,        KC_LEFT,        KC_ENTER,       KC_TRNS,        RSFT(KC_INSERT),KC_TRNS,        KC_TRNS,
 	                                KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
+	KC_TRNS,        KC_TRNS,
+	KC_TRNS,
+	KC_TRNS,        KC_TRNS,        KC_TRNS),
+  /* One-handed */
+  [3] = LAYOUT_ergodox(
+	// Left hand
+	KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
+	KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
+	KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
+	KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
+	KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
+	                                                                                KC_TRNS,        KC_TRNS,
+	                                                                                                KC_TRNS,
+	                                                                SH_T(KC_SPACE), KC_BSPACE,      KC_TRNS,
+
+	// Right hand
+	KC_TRNS,        KC_TRNS,        KC_TRNS,      KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
+	KC_TRNS,        KC_TRNS,        KC_TRNS,      KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
+	                KC_TRNS,        KC_TRNS,      KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
+	KC_TRNS,        KC_TRNS,        KC_TRNS,      KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
+	                                KC_TRNS,      KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
 	KC_TRNS,        KC_TRNS,
 	KC_TRNS,
 	KC_TRNS,        KC_TRNS,        KC_TRNS),
@@ -148,7 +168,12 @@ uint32_t layer_state_set_user(uint32_t state) {
 
     uint8_t layer = biton32(state);
 
-    (void)layer;
+    if (layer == 3) {
+      ergodox_right_led_2_on();
+    } else {
+      ergodox_right_led_2_off();
+    }
+
     return state;
 
 };
