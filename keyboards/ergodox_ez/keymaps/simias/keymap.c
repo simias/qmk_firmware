@@ -19,10 +19,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox(
 	// Left hand
 	KC_GRAVE,       KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_TRNS,
-	KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           TG(3),
+	KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           KC_TRNS,
 	KC_LCTL,        KC_A,           KC_S,           KC_D,           KC_F,           KC_G,
 	KC_LSPO,        KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,           KC_ENTER,
-	KC_ESCAPE,      KC_DELETE,      KC_HOME,        KC_END,         KC_LALT,
+	KC_ESCAPE,      KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_LALT,
 	                                                                                KC_VOLD,        KC_VOLU,
 	                                                                                                KC_TRNS,
 	                                                                KC_SPACE,       MO(2),          KC_LGUI,
@@ -32,7 +32,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	KC_BSPACE,      KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_LBRACKET,
 	                KC_H,           KC_J,           KC_K,           KC_L,           KC_SCOLON,      KC_QUOTE,
 	KC_ENTER,       KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_RSPC,
-	                                KC_MINUS,       KC_EQUAL,       KC_TRNS,        KC_TRNS,        KC_TRNS,
+	                                KC_MINUS,       KC_EQUAL,       KC_TRNS,        KC_TRNS,        TG(3),
 
 	KC_ESCAPE,      KC_AUDIO_MUTE,
 	KC_PGUP,
@@ -76,20 +76,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	                KC_DELETE,      KC_BSPACE,      KC_TRNS,        KC_DOWN,        KC_RBRACKET,    KC_TRNS,
 	KC_TRNS,        KC_LEFT,        KC_ENTER,       KC_TRNS,        RSFT(KC_INSERT),KC_TRNS,        KC_TRNS,
 	                                KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
-	KC_TRNS,        KC_TRNS,
+	KC_TRNS,        KC_TRNS,-
 	KC_TRNS,
 	KC_TRNS,        KC_TRNS,        KC_TRNS),
-  /* One-handed */
+  // Blender layer (numpad etc)
   [3] = LAYOUT_ergodox(
-	// Left hand
-	KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
-	KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
-	KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
-	KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
-	KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
-	                                                                                KC_TRNS,        KC_TRNS,
+	// Left hand44
+	KC_NLCK,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_PSLS,        KC_PAST,        KC_PENT,
+	KC_TRNS,        KC_D,           KC_SLASH,       KC_P7,          KC_P8,          KC_P9,          KC_PMNS,
+	KC_TRNS,        KC_TRNS,        KC_T,           KC_P4,          KC_P5,          KC_P6,
+	KC_TRNS,        KC_TRNS,        KC_B,           KC_P1,          KC_P2,          KC_P3,          KC_PPLS,
+	KC_TRNS,        KC_U,           KC_SCOLON,      KC_O,           KC_TRNS,
+	                                                                                KC_P0,          KC_PDOT,
 	                                                                                                KC_TRNS,
-	                                                                SH_T(KC_SPACE), KC_BSPACE,      KC_TRNS,
+	                                                                KC_TRNS,        KC_TRNS,        KC_TRNS,
 
 	// Right hand
 	KC_TRNS,        KC_TRNS,        KC_TRNS,      KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
