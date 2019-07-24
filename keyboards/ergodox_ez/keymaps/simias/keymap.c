@@ -72,11 +72,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 	// Right hand
 	KC_TRNS,        KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_F11,
-	KC_TRNS,        KC_RIGHT,       KC_TRNS,        KC_TRNS,        KC_MINUS,       KC_EQUAL,       KC_TRNS,
+	KC_TRNS,        KC_RIGHT,       KC_TRNS,        KC_MINUS,       KC_EQUAL,       KC_TRNS,        KC_TRNS,
 	                KC_DELETE,      KC_BSPACE,      KC_TRNS,        KC_DOWN,        KC_RBRACKET,    KC_TRNS,
 	KC_TRNS,        KC_LEFT,        KC_ENTER,       KC_TRNS,        RSFT(KC_INSERT),KC_TRNS,        KC_TRNS,
 	                                KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
-	KC_TRNS,        KC_TRNS,-
+	KC_TRNS,        KC_TRNS,
 	KC_TRNS,
 	KC_TRNS,        KC_TRNS,        KC_TRNS),
 };
