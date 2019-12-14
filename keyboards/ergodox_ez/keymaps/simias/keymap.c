@@ -18,11 +18,11 @@ enum custom_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox(
 	// Left hand
-	KC_GRAVE,       KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           TG(1),
+	KC_GRAVE,       KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_TRNS,
 	KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           KC_TRNS,
-	KC_LCTL,        KC_A,           KC_S,           KC_D,           KC_F,           KC_G,
+	LCTL_T(KC_ESCAPE), KC_A,        KC_S,           KC_D,           KC_F,           KC_G,
 	KC_LSPO,        KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,           KC_APP,
-	KC_ESCAPE,      KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_LALT,
+	KC_LCTL,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_LALT,
 	                                                                                KC_VOLD,        KC_VOLU,
 	                                                                                                KC_TRNS,
 	                                                                KC_SPACE,       MO(2),          KC_LGUI,
