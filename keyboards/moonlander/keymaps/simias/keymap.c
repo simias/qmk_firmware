@@ -23,38 +23,40 @@ enum custom_keycodes {
     VRSN = ML_SAFE_RANGE,
 };
 
+#define CT_ESC   LCTL_T(KC_ESC)
+
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT_moonlander(
-        KC_GRAVE,          KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_TRNS,           KC_TRNS,   KC_6,     KC_7,     KC_8,    KC_9,    KC_0,    KC_BSLASH,
-        KC_TAB,            KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_TRNS,           KC_BSPACE, KC_Y,     KC_U,     KC_I,    KC_O,    KC_P,    KC_LBRACKET,
-        LCTL_T(KC_ESCAPE), KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_APP,            KC_ENTER,  KC_H,     KC_J,     KC_K,    KC_L,    KC_SCLN, KC_QUOT,
-        KC_LSPO,           KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                                  KC_N,     KC_M,     KC_COMM, KC_DOT,  KC_SLSH, KC_RSPC,
-        KC_TRNS,           KC_TRNS, KC_TRNS, KC_TRNS, KC_LALT,             KC_APP, KC_AUDIO_MUTE,     KC_MINUS, KC_EQUAL, KC_TRNS, KC_TRNS, KC_TRNS,
-                                                      KC_SPC,  MO(2),   KC_LGUI,           KC_TRNS,   MO(1),    KC_RALT
+        KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_TRNS,           KC_TRNS, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSLS,
+        KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_TRNS,           KC_BSPC, KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC,
+        CT_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_APP,            KC_ENT,  KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
+        KC_LSPO, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                                KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSPC,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_LALT,              KC_MINS,   KC_EQL,      KC_MINS, KC_EQL,  KC_TRNS, KC_TRNS, KC_TRNS,
+                                            KC_SPC,  MO(2), KC_LGUI,             KC_TRNS, MO(1),  KC_RALT
     ),
 
     [1] = LAYOUT_moonlander(
-        VRSN,    KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_TRNS,           KC_TRNS, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
-        KC_TRNS, KC_EXLM, KC_AT,   KC_LCBR, KC_RCBR, KC_PIPE, KC_TRNS,           KC_TRNS, KC_UP,   KC_7,    KC_8,    KC_9,    KC_ASTR, KC_F12,
-        KC_TRNS, KC_HASH, KC_DLR,  KC_LPRN, KC_RPRN, KC_GRV,  KC_TRNS,           KC_TRNS, KC_DOWN, KC_4,    KC_5,    KC_6,    KC_PLUS, KC_TRNS,
-        KC_TRNS, KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, KC_TILD,                             KC_AMPR, KC_1,    KC_2,    KC_3,    KC_BSLS, KC_TRNS,
-        EEP_RST, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,          RGB_VAI,           RGB_TOG,          KC_TRNS, KC_DOT,  KC_0,    KC_EQL,  KC_TRNS,
-                                            RGB_HUD, RGB_VAD, RGB_HUI, TOGGLE_LAYER_COLOR,KC_TRNS, KC_TRNS
+        KC_F12,  KC_F7,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_TRNS,           KC_TRNS, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,           KC_TRNS, KC_TRNS, KC_TRNS, KC_UP,   KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,           KC_TRNS, KC_TRNS, KC_LEFT, KC_DOWN, KC_RGHT, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                             KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,              KC_TRNS,   KC_TRNS,              KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                                            KC_TRNS, KC_TRNS, KC_TRNS,           KC_TRNS, KC_TRNS,  KC_TRNS
     ),
 
-    [2] = LAYOUT_moonlander(
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,           KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_MS_U, KC_TRNS, KC_TRNS, KC_TRNS,           KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_MS_L, KC_MS_D, KC_MS_R, KC_TRNS, KC_TRNS,           KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_MPLY,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                             KC_TRNS, KC_TRNS, KC_MPRV, KC_MNXT, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_BTN1, KC_BTN2,         KC_TRNS,            KC_TRNS,               KC_VOLU, KC_VOLD, KC_MUTE, KC_TRNS, KC_TRNS,
-                                            KC_TRNS, KC_TRNS, KC_TRNS,           KC_TRNS, KC_TRNS, KC_TRNS
+    [1] = LAYOUT_moonlander(
+        KC_F12,  KC_F7,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_TRNS,           KC_TRNS, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_UP,   KC_TRNS, KC_TRNS,           KC_TRNS, KC_RGHT, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_HOME, KC_TRNS, KC_END,  KC_TRNS, KC_TRNS, KC_TRNS,           KC_TRNS, KC_DEL,  KC_BSPC, KC_TRNS, KC_DOWN, KC_RBRC, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                             KC_LEFT, KC_ENT,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,              KC_TRNS,   KC_TRNS,              KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                                            KC_TRNS, KC_TRNS, KC_TRNS,           KC_TRNS, KC_TRNS,  KC_TRNS
     ),
 };
 
 void led_set_user(uint8_t usb_led) {
-  if (usb_led & (1<<USB_LED_SCROLL_LOCK)) {
+  if (usb_led & (1 << USB_LED_SCROLL_LOCK)) {
       ML_LED_1(true);
   } else {
       ML_LED_1(false);
