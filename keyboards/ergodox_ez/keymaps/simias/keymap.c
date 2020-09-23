@@ -43,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	KC_F12,         KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          KC_TRNS,
 	KC_TRNS,        KC_MS_WH_UP,    KC_TRNS,        KC_MS_UP,       KC_TRNS,        KC_TRNS,        KC_NLCK,
 	KC_TRNS,        KC_MS_WH_DOWN,  KC_MS_LEFT,     KC_MS_DOWN,     KC_MS_RIGHT,    KC_TRNS,
-	KC_TRNS,        KC_TRNS,        KC_MS_ACCEL0,   KC_MS_ACCEL1,   KC_MS_ACCEL2,   KC_TRNS,        KC_MS_BTN3,
+	KC_TRNS,        KC_TRNS,        KC_MS_ACCEL0,   KC_VOLD,        KC_VOLU,        KC_TRNS,        KC_MS_BTN3,
 	KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
 	                                                                                KC_MS_BTN4,     KC_MS_BTN5,
 	                                                                                                KC_TRNS,
@@ -62,9 +62,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [2] = LAYOUT_ergodox(
 	// Left hand
 	KC_F12,         KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          KC_TRNS,
-	KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_UP,          PC_TRNS,        KC_TRNS,
+	KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_UP,          KC_TRNS,        KC_TRNS,
 	KC_TRNS,        KC_HOME,        KC_TRNS,        KC_END,         KC_TRNS,        KC_TRNS,
-	KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
+	KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_PGDN,        KC_PGUP,        KC_TRNS,        KC_TRNS,
 	KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,        KC_TRNS,
 	                                                                                KC_TRNS,        KC_TRNS,
 	                                                                                                KC_TRNS,
