@@ -24,10 +24,10 @@ enum custom_keycodes {
 };
 
 enum layers {
-    BASE,
-    NUMPAD,
-    MEDIA,
-    GAMING,
+    BASE = 0,
+    ARROWS = 1,
+    EMACS = 2,
+    GAMING = 3,
 };
 
 #define CT_ESC   LCTL_T(KC_ESC)
@@ -43,16 +43,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                             KC_SPC,  MO(2),   KC_LGUI,           KC_TRNS, MO(1),   KC_RALT
     ),
 
-    [NUMPAD] = LAYOUT_moonlander(
+    [ARROWS] = LAYOUT_moonlander(
         KC_F12,  KC_F7,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_TRNS,           KC_TRNS, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,           KC_TRNS, KC_TRNS, KC_TRNS, KC_UP,   KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,           KC_TRNS, KC_TRNS, KC_LEFT, KC_DOWN, KC_RGHT, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_VOLD, KC_VOLU, KC_TRNS,                             KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,              KC_TRNS,  KC_TRNS,               KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-                                            KC_TRNS, KC_TRNS, KC_TRNS,           KC_TRNS, KC_TRNS, KC_TRNS
+        KC_TRNS, RGB_SAD, RGB_SAI, RGB_HUD, RGB_HUI,              RGB_MOD,  RGB_TOG,               KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                                            RGB_VAD, RGB_VAI, KC_TRNS,           KC_TRNS, KC_TRNS, KC_TRNS
     ),
 
-    [MEDIA] = LAYOUT_moonlander(
+    [EMACS] = LAYOUT_moonlander(
         KC_F12,  KC_F7,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_TRNS,           KC_TRNS, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_UP,   KC_TRNS, KC_TRNS,           KC_TRNS, KC_RGHT, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_HOME, KC_TRNS, KC_END,  KC_TRNS, KC_TRNS, KC_TRNS,           KC_TRNS, KC_DEL,  KC_BSPC, KC_TRNS, KC_DOWN, KC_RBRC, KC_TRNS,
@@ -65,7 +65,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,           KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_LCTL, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,           KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_LSFT, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                             KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_RSFT,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,              KC_TRNS,   KC_TRNS,              KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,              KC_TRNS,   KC_TRNS,              KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TO(0),
                                             KC_TRNS, KC_TRNS, KC_TRNS,           KC_TRNS, KC_TRNS, KC_TRNS
     ),
 };
