@@ -72,9 +72,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 void led_set_user(uint8_t usb_led) {
   if (usb_led & (1 << USB_LED_SCROLL_LOCK)) {
-      ML_LED_1(true);
+      ML_LED_6(true);
   } else {
-      ML_LED_1(false);
+      ML_LED_6(false);
   }
 }
 
