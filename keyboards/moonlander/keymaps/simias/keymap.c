@@ -21,6 +21,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 enum custom_keycodes {
     VRSN = ML_SAFE_RANGE,
+    RGB_STG,
 };
 
 enum layers {
@@ -48,7 +49,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______, _______, _______, _______, _______,           _______, _______, _______, KC_UP,   _______, _______, _______,
         _______, _______, _______, _______, _______, _______, _______,           _______, _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______,
         _______, _______, _______, KC_VOLD, KC_VOLU, _______,                             _______, _______, _______, _______, _______, _______,
-        _______, RGB_SAD, RGB_SAI, RGB_HUD, RGB_HUI,              RGB_MOD,  RGB_TOG,               _______, _______, _______, _______, _______,
+        _______, RGB_SAD, RGB_SAI, RGB_HUD, RGB_HUI,              RGB_MOD,  RGB_STG,               _______, _______, _______, _______, _______,
                                             RGB_VAD, RGB_VAI, _______,           _______, _______, _______
     ),
 
@@ -70,12 +71,56 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 };
 
+static bool had_rgb = false;
+static uint32_t rgb_mode = 0;
+static uint16_t rgb_hue = 0;
+static uint8_t rgb_sat = 0;
+static uint8_t rgb_val = 0;
+
+void rgblight_bank(void) {
+    had_rgb = rgblight_is_enabled();
+    rgb_mode = rgblight_get_mode();
+    rgb_hue = rgblight_get_hue();
+    rgb_sat = rgblight_get_sat();
+    rgb_val = rgblight_get_val();
+}
+
+void rgblight_restore(void) {
+    if (had_rgb) {
+        rgblight_enable_noeeprom();
+        rgblight_mode_noeeprom(rgb_mode);
+        rgblight_sethsv_noeeprom(rgb_hue, rgb_sat, rgb_val);
+    } else {
+        rgblight_mode_noeeprom(rgb_mode);
+        rgblight_sethsv_noeeprom(rgb_hue, rgb_sat, rgb_val);
+        rgblight_disable_noeeprom();
+    }
+}
+
+static bool in_sc = false;
+
 void led_set_user(uint8_t usb_led) {
-  if (usb_led & (1 << USB_LED_SCROLL_LOCK)) {
-      ML_LED_6(true);
-  } else {
-      ML_LED_6(false);
-  }
+
+    bool is_sc = usb_led & (1 << USB_LED_SCROLL_LOCK);
+
+    if (in_sc == is_sc) {
+        return;
+    }
+
+    in_sc = is_sc;
+
+    if (is_sc) {
+        rgblight_bank();
+
+        rgblight_enable_noeeprom();
+        rgblight_sethsv_noeeprom(0, 0xff, (rgb_val > 0x1f) ? rgb_val : 0x1f);
+        rgblight_mode_noeeprom(RGBLIGHT_MODE_STATIC_LIGHT);
+
+        ML_LED_6(true);
+    } else {
+        rgblight_restore();
+        ML_LED_6(false);
+    }
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -83,6 +128,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         switch (keycode) {
         case VRSN:
             SEND_STRING (QMK_KEYBOARD "/" QMK_KEYMAP " @ " QMK_VERSION);
+            return false;
+        case RGB_STG:
+            if (!in_sc) {
+#if defined(RGBLIGHT_ENABLE) && !defined(RGBLIGHT_DISABLE_KEYCODES)
+                rgblight_toggle();
+#endif
+#if defined(RGB_MATRIX_ENABLE) && !defined(RGB_MATRIX_DISABLE_KEYCODES)
+                rgb_matrix_toggle();
+#endif
+            }
             return false;
         }
     }

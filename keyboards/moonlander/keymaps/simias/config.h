@@ -2,5 +2,5 @@
 
 #define PERMISSIVE_HOLD
 
-/* Do we want this? */
-#define ORYX_CONFIGURATOR
+/* This breaks the scroll lock toggle shenanigans */
+#undef ORYX_CONFIGURATOR
