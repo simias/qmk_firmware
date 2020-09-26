@@ -132,14 +132,23 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case RGB_STG:
             if (!in_sc) {
 #if defined(RGBLIGHT_ENABLE) && !defined(RGBLIGHT_DISABLE_KEYCODES)
-                rgblight_toggle();
+                rgblight_toggle_noeeprom();
 #endif
 #if defined(RGB_MATRIX_ENABLE) && !defined(RGB_MATRIX_DISABLE_KEYCODES)
-                rgb_matrix_toggle();
+                rgb_matrix_toggle_noeeprom();
 #endif
             }
             return false;
         }
     }
     return true;
+}
+
+void keyboard_post_init_user(void) {
+#ifdef RGBLIGHT_ENABLE
+    rgblight_disable_noeeprom();
+#endif
+#ifdef RGB_MATRIX_ENABLE
+    rgb_matrix_disable_noeeprom();
+#endif
 }
