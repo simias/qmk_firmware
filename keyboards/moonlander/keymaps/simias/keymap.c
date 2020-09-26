@@ -62,7 +62,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                             _______, _______, _______,           _______, _______, _______
     ),
     [GAMING] = LAYOUT_moonlander(
-        _______, _______, _______, _______, _______, _______, TO(3),             _______, _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______, _______, TO(0),             _______, _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______, _______, _______,           _______, _______, _______, _______, _______, _______, _______,
         KC_LCTL, _______, _______, _______, _______, _______, _______,           _______, _______, _______, _______, _______, _______, _______,
         KC_LSFT, _______, _______, _______, _______, _______,                             _______, _______, _______, _______, _______, KC_RSFT,
@@ -121,6 +121,28 @@ void led_set_user(uint8_t usb_led) {
         rgblight_restore();
         ML_LED_6(false);
     }
+}
+
+layer_state_t layer_state_set_kb(layer_state_t state) {
+    state = layer_state_set_user(state);
+
+    ML_LED_1(false);
+    ML_LED_2(false);
+    ML_LED_3(false);
+    ML_LED_4(false);
+    ML_LED_5(false);
+
+    uint8_t layer = get_highest_layer(state);
+    switch (layer) {
+        case GAMING:
+            ML_LED_1(true);
+            ML_LED_4(true);
+            break;
+        default:
+            break;
+    }
+
+    return state;
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
